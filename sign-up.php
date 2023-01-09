@@ -36,7 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!$connection) die($connection->error);
     function add_user($connection, $n, $o, $t): void
     {
-        $query = "INSERT INTO user (username, password, team, shipcell) VALUES ('$n', '$o', '$t', 0)";
+        $randomnumber = rand(-1, 100);
+        $query = "INSERT INTO user (username, password, team, shipcell,Online) VALUES ('$n', '$o', '$t', $randomnumber,0)";
         $result = mysqli_query($connection, $query);
         if ($result) {
             header("Location:login.html");

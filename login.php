@@ -43,13 +43,9 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
             echo "Logged in!";
             $_SESSION['username'] = $row['username'];
             $_SESSION['team'] = $row['team'];
+            $sql = "UPDATE `user` SET `Online`='1' WHERE username = '$uname'";
+            mysqli_query($connection, $sql);
             header("Location: home.php");
         }
     }
 }
-// else {
-
-//     header("Location: landing-page.html");
-
-//     exit();
-// }

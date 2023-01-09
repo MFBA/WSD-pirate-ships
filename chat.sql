@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jan 09, 2023 at 03:20 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.1.6
+-- Host: 127.0.0.1
+-- Generation Time: Jan 09, 2023 at 05:51 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,37 +31,22 @@ CREATE TABLE `chat` (
   `username` varchar(128) NOT NULL,
   `team` varchar(128) NOT NULL,
   `message` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `chat`
 --
 
 INSERT INTO `chat` (`username`, `team`, `message`) VALUES
-('fahad2', 'Green', 'hi'),
-('fahad', 'Red', 'hi'),
-('fahad2', 'Green', 'hi'),
-('fahad2', 'Green', 'hi'),
-('fahad', 'Red', 'hello'),
-('fahad', 'Red', 'jhdfsd'),
-('fahad', 'Red', 'gjh'),
-('fahad2', 'Green', 'hkg'),
-('fahad', 'Red', 'jhkj'),
-('fahad', 'Red', '3456'),
-('fahad', 'Red', '456'),
-('fahad', 'Red', '6'),
-('fahad', 'Red', 'uyg'),
-('fahad', 'Red', 'y'),
-('fahad2', 'Green', 'hgj'),
-('fahad', 'Red', 'hg'),
-('fahad2', 'Green', 'jh'),
-('fahad2', 'Green', '87'),
-('fahad', 'Red', 'hgh'),
-('fahad', 'Red', 'khjkj'),
-('fahad2', 'Green', 'hvjg'),
-('fahad', 'Red', 'hjjhjk'),
-('fahad', 'Red', 'jkh'),
-('fahad', 'Red', 'jhhjg');
+('umairrkhn', 'Red', 'yo'),
+('umairrkhn', 'Red', 'lol'),
+('ata potta', 'Green', 'hehehe'),
+('umairrkhn', 'Red', 'ji'),
+('ata potta', 'Green', 'hanb'),
+('umairrkhn', 'Red', 'lu'),
+('umairrkhn', 'Red', 'lu'),
+('ata potta', 'Green', 'lu'),
+('umairrkhn', 'Red', 'hiii');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

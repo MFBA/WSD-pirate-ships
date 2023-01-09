@@ -10,7 +10,7 @@ if (isset($_SESSION['username'])) {
     $connection_board = new mysqli("localhost", "root", "", "board");
 
     // getting shipcell
-    $sql = "SELECT * FROM user WHERE team='$team'";
+    $sql = "SELECT * FROM user WHERE username='$username'";
     $result = mysqli_query($connection_user, $sql);
     if (!$result) die($connection_user->error);
     $row_user = mysqli_fetch_assoc($result);
@@ -24,7 +24,7 @@ if (isset($_SESSION['username'])) {
 
     if ($rows == 0) {
         for ($i = 0; $i < 100; $i++) {
-            $sql = "INSERT INTO board (cell, team, redships, greenships, yellowships) VALUES ('$i', '', '0', '0', '0')";
+            $sql = "INSERT INTO board (cell, team) VALUES ('$i', '')";
             $result = mysqli_query($connection_board, $sql);
             if (!$result) die($connection_board->error);
         }
@@ -58,78 +58,84 @@ if (isset($_SESSION['username'])) {
             if (($team == "Red")) {
                 if ($redships >= $greenships && $redships >= $yellowships) {
                     if ($cell == $shipcell) {
-                        echo "<div class='cell red' id='$cell'><img src='images/ship.png' alt='ship' class='ship'>$redships</div>";
+                        echo "<div class='cell red' id='$cell'><img src='images/ship.png' alt='ship' class='ship'></div>";
                     } else {
-                        echo "<div class='cell red' id='$cell'>$redships</div>";
+                        echo "<div class='cell red' id='$cell'></div>";
                     }
                 } else if ($greenships >= $redships && $greenships >= $yellowships) {
                     if ($cell == $shipcell) {
-                        echo "<div class='cell green' id='$cell'><img src='images/ship.png' alt='ship' class='ship'>$greenships</div>";
+                        echo "<div class='cell green' id='$cell'><img src='images/ship.png' alt='ship' class='ship'></div>";
                     } else {
-                        echo "<div class='cell green' id='$cell'>$greenships</div>";
+                        echo "<div class='cell green' id='$cell'></div>";
                     }
                 } else if ($yellowships >= $redships && $yellowships >= $greenships) {
                     if ($cell == $shipcell) {
-                        echo "<div class='cell yellow' id='$cell'><img src='images/ship.png' alt='ship' class='ship'>$yellowships</div>";
+                        echo "<div class='cell yellow' id='$cell'><img src='images/ship.png' alt='ship' class='ship'></div>";
                     } else {
-                        echo "<div class='cell yellow' id='$cell'>$yellowships</div>";
+                        echo "<div class='cell yellow' id='$cell'></div>";
                     }
                 } else {
                     if ($cell == $shipcell) {
-                        echo "<div class='cell red' id='$cell'><img src='images/ship.png' alt='ship' class='ship'>$redships</div>";
+                        echo "<div class='cell red' id='$cell'><img src='images/ship.png' alt='ship' class='ship'></div>";
                     } else {
-                        echo "<div class='cell red' id='$cell'>$redships</div>";
+                        echo "<div class='cell red' id='$cell'></div>";
                     }
                 }
             } else if ($team == "Green") {
                 if ($redships > $greenships && $redships > $yellowships) {
                     if ($cell == $shipcell) {
-                        echo "<div class='cell red' id='$cell'><img src='images/ship.png' alt='ship' class='ship'>$redships</div>";
+                        echo "<div class='cell red' id='$cell'><img src='images/ship.png' alt='ship' class='ship'></div>";
                     } else {
-                        echo "<div class='cell red' id='$cell'>$redships</div>";
+                        echo "<div class='cell red' id='$cell'></div>";
                     }
                 } else if ($greenships > $redships && $greenships > $yellowships) {
                     if ($cell == $shipcell) {
-                        echo "<div class='cell green' id='$cell'><img src='images/ship.png' alt='ship' class='ship'>$greenships</div>";
+                        echo "<div class='cell green' id='$cell'><img src='images/ship.png' alt='ship' class='ship'></div>";
                     } else {
-                        echo "<div class='cell green' id='$cell'>$greenships</div>";
+                        echo "<div class='cell green' id='$cell'></div>";
                     }
                 } else if ($yellowships > $redships && $yellowships > $greenships) {
                     if ($cell == $shipcell) {
-                        echo "<div class='cell yellow' id='$cell'><img src='images/ship.png' alt='ship' class='ship'>$yellowships</div>";
+                        echo "<div class='cell yellow' id='$cell'><img src='images/ship.png' alt='ship' class='ship'></div>";
                     } else {
-                        echo "<div class='cell yellow' id='$cell'>$yellowships</div>";
+                        echo "<div class='cell yellow' id='$cell'></div>";
                     }
                 } else {
                     if ($cell == $shipcell) {
-                        echo "<div class='cell green' id='$cell'><img src='images/ship.png' alt='ship' class='ship'>$greenships</div>";
+                        echo "<div class='cell green' id='$cell'><img src='images/ship.png' alt='ship' class='ship'></div>";
                     } else {
-                        echo "<div class='cell green' id='$cell'>$greenships</div>";
+                        echo "<div class='cell green' id='$cell'></div>";
                     }
                 }
             } else if ($team == "Yellow") {
-                if ($redships >= $greenships && $redships >= $yellowships) {
+                if ($redships > $greenships && $redships > $yellowships) {
                     if ($cell == $shipcell) {
-                        echo "<div class='cell red' id='$cell'><img src='images/ship.png' alt='ship' class='ship'>$redships</div>";
+                        echo "<div class='cell red' id='$cell'><img src='images/ship.png' alt='ship' class='ship'></div>";
                     } else {
-                        echo "<div class='cell red' id='$cell'>$redships</div>";
+                        echo "<div class='cell red' id='$cell'></div>";
                     }
-                } else if ($greenships >= $redships && $greenships >= $yellowships) {
+                } else if ($greenships > $redships && $greenships > $yellowships) {
                     if ($cell == $shipcell) {
-                        echo "<div class='cell green' id='$cell'><img src='images/ship.png' alt='ship' class='ship'>$greenships</div>";
+                        echo "<div class='cell green' id='$cell'><img src='images/ship.png' alt='ship' class='ship'></div>";
                     } else {
-                        echo "<div class='cell green' id='$cell'>$greenships</div>";
+                        echo "<div class='cell green' id='$cell'></div>";
                     }
-                } else if ($yellowships >= $redships && $yellowships >= $greenships) {
+                } else if ($yellowships > $redships && $yellowships > $greenships) {
                     if ($cell == $shipcell) {
-                        echo "<div class='cell yellow' id='$cell'><img src='images/ship.png' alt='ship' class='ship'>$yellowships</div>";
+                        echo "<div class='cell yellow' id='$cell'><img src='images/ship.png' alt='ship' class='ship'></div>";
                     } else {
-                        echo "<div class='cell yellow' id='$cell'>$yellowships</div>";
+                        echo "<div class='cell yellow' id='$cell'></div>";
+                    }
+                } else {
+                    if ($cell == $shipcell) {
+                        echo "<div class='cell yellow' id='$cell'><img src='images/ship.png' alt='ship' class='ship'></div>";
+                    } else {
+                        echo "<div class='cell yellow' id='$cell'></div>";
                     }
                 }
             } else {
                 if ($cell == $shipcell) {
-                    echo "<div class='cell' id='$cell'><img src='images/ship.png' alt='ship' class='ship'>$greenships$redships</div>";
+                    echo "<div class='cell' id='$cell'><img src='images/ship.png' alt='ship' class='ship'></div>";
                 } else {
                     echo "<div class='cell' id='$cell'></div>";
                 }
