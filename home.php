@@ -74,10 +74,12 @@ if (isset($_SESSION['username'])) {
 
 			.red {
 				background-color: red;
+				animation-name: red;
 			}
 
 			.yellow {
 				background-color: yellow;
+				animation-name: red;
 			}
 
 			.green {
@@ -85,7 +87,6 @@ if (isset($_SESSION['username'])) {
 			}
 
 			.ship {
-
 				width: 30px;
 			}
 		</style>
@@ -99,106 +100,7 @@ if (isset($_SESSION['username'])) {
 		<p style="text-align: right"><a href="logout.php">Logout</a></p>
 		<br /><br />
 		<div class="layout">
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
+
 		</div>
 
 		<div class="info">
@@ -251,9 +153,6 @@ if (isset($_SESSION['username'])) {
 				xmlhttp.open("GET", "chat.php?message=" + message.value, true);
 				xmlhttp.send();
 			})
-
-
-
 			setInterval(function() {
 
 				var xmlhttp = new XMLHttpRequest();
@@ -289,6 +188,8 @@ if (isset($_SESSION['username'])) {
 					if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
 						document.querySelector(".messages").innerHTML = xmlhttp.responseText;
+						document.querySelector(".messages").scrollTop = document.querySelector(".messages").scrollHeight;
+
 					}
 				}
 				xmlhttp.open("GET", "getchat.php", true);

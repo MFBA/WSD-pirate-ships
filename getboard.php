@@ -9,65 +9,26 @@ if (isset($_SESSION['username'])) {
     $connection_user = new mysqli('localhost', 'root', '', 'users');
     $connection_board = new mysqli("localhost", "root", "", "board");
 
-    // $sql = "SELECT COUNT(*) as redships,shipcell FROM user WHERE team='Red'";
-    // $result = mysqli_query($connection_user, $sql);
-    // if (!$result) die($connection_user->error);
-    // $row_user = mysqli_fetch_assoc($result);
-    // $redships = $row_user['redships'];
-    // $redshipcell = $row_user['shipcell'];
-
-    // $sql = "SELECT COUNT(*) as greenships,shipcell FROM user WHERE team='Green'";
-    // $result = mysqli_query($connection_user, $sql);
-    // if (!$result) die($connection_user->error);
-    // $row_user = mysqli_fetch_assoc($result);
-    // $greenships = $row_user['greenships'];
-    // $greenshipcell = $row_user['shipcell'];
-
-    // $sql = "SELECT COUNT(*) as yellowships,shipcell FROM user WHERE team='Yellow'";
-    // $result = mysqli_query($connection_user, $sql);
-    // if (!$result) die($connection_user->error);
-    // $row_user = mysqli_fetch_assoc($result);
-    // $yellowships = $row_user['yellowships'];
-    // $yellowshipcell = $row_user['shipcell'];
-
-
-
+    // getting shipcell
     $sql = "SELECT * FROM user WHERE team='$team'";
-
     $result = mysqli_query($connection_user, $sql);
     if (!$result) die($connection_user->error);
-
-
     $row_user = mysqli_fetch_assoc($result);
     $shipcell = $row_user['shipcell'];
 
+    // getting board and updating
     $sql = "SELECT * FROM board";
-
     $result = mysqli_query($connection_board, $sql);
-
     if (!$result) die($connection_board->error);
-
     $rows = mysqli_num_rows($result);
 
     if ($rows == 0) {
-
-        $board = array();
         for ($i = 0; $i < 100; $i++) {
-            $board[$i] = array("cell" => $i, "team" => "", "ships" => 0);
-        }
-        for ($i = 0; $i < 100; $i++) {
-            $cell = $board[$i]['cell'];
-            $team = $board[$i]['team'];
-            $redships = $board[$i]['redships'];
-            $greenships = $board[$i]['greenships'];
-            $yellowships = $board[$i]['yellowships'];
-            $sql = "INSERT INTO board (cell, team, redships, greenships, yellowships) VALUES ('$cell', '$team', '0', '0', '0')";
+            $sql = "INSERT INTO board (cell, team, redships, greenships, yellowships) VALUES ('$i', '', '0', '0', '0')";
             $result = mysqli_query($connection_board, $sql);
             if (!$result) die($connection_board->error);
         }
     } else {
-
-
         for ($i = 0; $i < $rows; $i++) {
 
             $sql = "SELECT count(*) as greenships FROM user WHERE shipcell=$i AND team='Green'";
@@ -92,10 +53,6 @@ if (isset($_SESSION['username'])) {
             $row = mysqli_fetch_assoc($result);
             $cell = $row['cell'];
             $team = $row['team'];
-
-            // $greenships = 0;
-            // $yellowships = 0;
-            // $redships = 0;
 
 
             if (($team == "Red")) {
