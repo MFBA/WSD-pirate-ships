@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 09, 2023 at 02:19 PM
+-- Generation Time: Jan 09, 2023 at 03:20 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -54,7 +54,14 @@ INSERT INTO `chat` (`username`, `team`, `message`) VALUES
 ('fahad', 'Red', 'y'),
 ('fahad2', 'Green', 'hgj'),
 ('fahad', 'Red', 'hg'),
-('fahad2', 'Green', 'jh');
+('fahad2', 'Green', 'jh'),
+('fahad2', 'Green', '87'),
+('fahad', 'Red', 'hgh'),
+('fahad', 'Red', 'khjkj'),
+('fahad2', 'Green', 'hvjg'),
+('fahad', 'Red', 'hjjhjk'),
+('fahad', 'Red', 'jkh'),
+('fahad', 'Red', 'jhhjg');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

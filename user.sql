@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 09, 2023 at 02:19 PM
+-- Generation Time: Jan 09, 2023 at 03:21 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -39,8 +39,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`username`, `password`, `team`, `shipcell`) VALUES
-('fahad', 'ff5ebd2c152ed505b7297cb95b2bbc48caea99897ae39e8a781886f822c148f6', 'Red', 31),
-('fahad2', 'ff5ebd2c152ed505b7297cb95b2bbc48caea99897ae39e8a781886f822c148f6', 'Green', 41),
+('fahad', 'ff5ebd2c152ed505b7297cb95b2bbc48caea99897ae39e8a781886f822c148f6', 'Red', 87),
+('fahad2', 'ff5ebd2c152ed505b7297cb95b2bbc48caea99897ae39e8a781886f822c148f6', 'Green', 22),
 ('umairrkhn', 'f4e5cb46c14e342ea1b248dc9cd137c5df0a185c9c82ef3a6eeb990c87939f51', 'Green', 66),
 ('fahad3', 'ff5ebd2c152ed505b7297cb95b2bbc48caea99897ae39e8a781886f822c148f6', 'Green', 0);
 COMMIT;
