@@ -47,6 +47,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     if ($_POST['password'] == $_POST['repeat_password']) {
         $password = $_POST['password'];
+    } else {
+        echo "Passwords do not match";
+        exit();
     }
     $team = $_POST['team'];
 

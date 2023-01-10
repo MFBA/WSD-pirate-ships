@@ -50,6 +50,28 @@ if (isset($_POST['board'])) {
         die($connection->error);
     }
     delete($connection);
+} else if (isset($_POST['chat'])) {
+
+    $db_server = 'localhost';
+    $db_username = 'root';
+    $db_password = '';
+    $db_database = 'chat';
+
+
+    $connection = mysqli_connect($db_server, $db_username, $db_password, $db_database);
+    if (!$connection) die($connection->error);
+
+    function delete($connection): void
+    {
+        $query = "DELETE FROM chat";
+        $result = mysqli_query($connection, $query);
+        if ($result) {
+
+            echo "Reseted chat in users";
+        }
+        die($connection->error);
+    }
+    delete($connection);
 } else {
     echo "No button was pressed";
 }
